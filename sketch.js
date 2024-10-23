@@ -24,28 +24,36 @@ function setup() {
 function disegnaNellaCella(x, y, size, rowNumber) {
   quantita = pow(3, 5 - rowNumber)
   for (let q = 0; q < quantita ;q++ ){
-    disegnaQuad (x,y, size)
+    disegnaQuad (x,y, size, rowNumber)
   }
 }
 
-function disegnaQuad(x, y, size){
+function randrange(number, range) {
+  // range = 0;
+  let valoreRandomico = random(number-range, number+range); 
+  return valoreRandomico;
+};
+
+function disegnaQuad(x, y, size, rowNumber){
 
   //ogni punto che può variare di un tot (il range)
   //ogni punto può andare a sovrapporsi in parte su altre celle
   //devo stabilire di quanto
-  let mezzoRange = size/5;
+  //let mezzoRange = size/5;
+  let mezzoRange = (6-rowNumber) * size/14 ; 
+  let margine = 8;
 
-  let x1 = random (x-mezzoRange, x+mezzoRange);
-  let y1 = random (y-mezzoRange, y+mezzoRange);
+  let x1 = randrange (x       + margine, mezzoRange);
+  let y1 = randrange (y       + margine, mezzoRange);
 
-  let x2 = random (x+size-mezzoRange, x+size+mezzoRange);
-  let y2 = random (y-mezzoRange, y+mezzoRange);
+  let x2 = randrange (x+size  - margine, mezzoRange);
+  let y2 = randrange (y       + margine, mezzoRange);
 
-  let x3 = random (x+size+mezzoRange, x+size-mezzoRange);
-  let y3 = random (y+size+mezzoRange, y+size-mezzoRange);
+  let x3 = randrange (x+size  - margine, mezzoRange);
+  let y3 = randrange (y+size  - margine, mezzoRange);
 
-  let x4 = random (x-mezzoRange, x+mezzoRange);
-  let y4 = random (y+size-mezzoRange, y+size+mezzoRange); 
+  let x4 = randrange (x       + margine, mezzoRange);
+  let y4 = randrange (y+size  - margine, mezzoRange); 
 
   //il giro delle coordinate del quadrilatero parte da in alto a sinistra, poi in alto a destra, poi in basso a destra, poi in basso a sinistra
   noFill ();
@@ -53,6 +61,39 @@ function disegnaQuad(x, y, size){
   strokeWeight (1);
   quad(x1, y1, x2, y2, x3, y3, x4, y4);
 }
+
+// function disegnaQuad(x, y, size, rowNumber){
+
+//   //ogni punto che può variare di un tot (il range)
+//   //ogni punto può andare a sovrapporsi in parte su altre celle
+//   //devo stabilire di quanto
+//   //let mezzoRange = size/5;
+//   let mezzoRange = size/(rowNumber+3);
+
+//   let x1 = random (x-(mezzoRange-2*rowNumber), x+(mezzoRange-2*rowNumber));
+//   let y1 = random (y-mezzoRange, y+mezzoRange);
+
+//   let x2 = random (x+size-(mezzoRange), x+size+(mezzoRange-2*rowNumber));
+//   let y2 = random (y-mezzoRange, y+mezzoRange);
+
+//   let x3 = random (x+size+(mezzoRange), x+size-(mezzoRange-2*rowNumber));
+//   let y3 = random (y+size+mezzoRange, y+size-mezzoRange);
+
+//   let x4 = random (x-(mezzoRange), x+(mezzoRange-2*rowNumber));
+//   let y4 = random (y+size-mezzoRange, y+size+mezzoRange); 
+
+//   //il giro delle coordinate del quadrilatero parte da in alto a sinistra, poi in alto a destra, poi in basso a destra, poi in basso a sinistra
+//   noFill ();
+//   stroke (1);
+//   strokeWeight (1);
+//   quad(x1, y1, x2, y2, x3, y3, x4, y4);
+// }
+
+//function mezzoRange (){
+ // for (let v=0; v < RangeCheVaria; r++){
+//
+  //}
+//}
 
 function draw() {
 
@@ -75,7 +116,7 @@ function draw() {
       let x = c*size + margin;
  
 
-      if(r>0 || (r==0 && c > (ncols/2 + 1))){
+      if(r>0 || (r==0 && c >= (ncols/2 + 1))){
         disegnaNellaCella (x, y, size, r)
       }
     }
