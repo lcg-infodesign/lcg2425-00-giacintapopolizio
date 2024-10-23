@@ -52,7 +52,6 @@ function draw() {
 
   background("#c5c5c5");
 
- 
   //definisco la grandezza che deve avere ciascuna "cella"
   let size = windowHeight/8;
   //la dimensione del margine è quanto una cella
@@ -62,7 +61,6 @@ function draw() {
   let ncols = floor((windowWidth - 2*margin) / size) ;
   let nrow = 6;
   
-
   for (let r = 0; r < nrow; r++) {
     let y = r*size + margin;
     for (let c = 0; c < ncols; c++){
@@ -76,3 +74,5 @@ function draw() {
 
   }
 }
+
+//Credits: Vera Molnar - 1985 - Structure de Quadrilatères
