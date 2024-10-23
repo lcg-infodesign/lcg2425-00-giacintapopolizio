@@ -2,20 +2,6 @@ function preload() {
   // put preload code here
 }
 
-//function setup() {
-//  createCanvas(windowWidth, windowHeight);
-//  // put setup code here
-//  const message =
-//    "This is a template repository\nfor the course Laboratorio di Computergrafica\nCommunication Design, Politecnico di Milano";
-//  textAlign(CENTER, CENTER);
-//  textSize(16);
-//  text(message, width / 2, height / 2);
-//}
-
-//function draw() {
-//  // put drawing code here
-//}
-
 function setup() {
   noLoop();
   createCanvas(windowWidth, windowHeight);
@@ -62,42 +48,9 @@ function disegnaQuad(x, y, size, rowNumber){
   quad(x1, y1, x2, y2, x3, y3, x4, y4);
 }
 
-// function disegnaQuad(x, y, size, rowNumber){
-
-//   //ogni punto che può variare di un tot (il range)
-//   //ogni punto può andare a sovrapporsi in parte su altre celle
-//   //devo stabilire di quanto
-//   //let mezzoRange = size/5;
-//   let mezzoRange = size/(rowNumber+3);
-
-//   let x1 = random (x-(mezzoRange-2*rowNumber), x+(mezzoRange-2*rowNumber));
-//   let y1 = random (y-mezzoRange, y+mezzoRange);
-
-//   let x2 = random (x+size-(mezzoRange), x+size+(mezzoRange-2*rowNumber));
-//   let y2 = random (y-mezzoRange, y+mezzoRange);
-
-//   let x3 = random (x+size+(mezzoRange), x+size-(mezzoRange-2*rowNumber));
-//   let y3 = random (y+size+mezzoRange, y+size-mezzoRange);
-
-//   let x4 = random (x-(mezzoRange), x+(mezzoRange-2*rowNumber));
-//   let y4 = random (y+size-mezzoRange, y+size+mezzoRange); 
-
-//   //il giro delle coordinate del quadrilatero parte da in alto a sinistra, poi in alto a destra, poi in basso a destra, poi in basso a sinistra
-//   noFill ();
-//   stroke (1);
-//   strokeWeight (1);
-//   quad(x1, y1, x2, y2, x3, y3, x4, y4);
-// }
-
-//function mezzoRange (){
- // for (let v=0; v < RangeCheVaria; r++){
-//
-  //}
-//}
-
 function draw() {
 
-  background("grey");
+  background("#c5c5c5");
 
  
   //definisco la grandezza che deve avere ciascuna "cella"
